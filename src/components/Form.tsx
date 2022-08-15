@@ -1,10 +1,18 @@
 import React, { useState } from "react";
 import "../index.css";
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
 export default function Form() {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  interface signUpForm {
+    username: string;
+    email: string;
+    password: string;
+  }
+
+  const [username, setUsername] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
+  
 
   const signUp = () => {
     const data = {
@@ -52,3 +60,7 @@ export default function Form() {
     </section>
   );
 }
+function useForm(arg0: string): { register: any; handleSubmit: any; } {
+  throw new Error("Function not implemented.");
+}
+
