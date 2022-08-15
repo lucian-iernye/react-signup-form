@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import "../index.css";
 
 export default function Form() {
 
   type State = {
-    username: string
+    firstName: string
+    lastName: string
     email: string
     password: string
     isButtonDisabled: boolean
@@ -12,18 +13,38 @@ export default function Form() {
   }
 
   const initialState: State = {
-    username: '',
+    firstName: '',
+    lastName: '',
     email: '',
     password: '',
     isButtonDisabled: true,
     isError: false,
   }
+
+  type Action = { type: 'setUsername', payload: string } |
+                { type: 'setEmail', payload: string } |
+                { type: 'setPassword', payload: string } |
+                { type: 'setIsButtonDisabled', payload: boolean } |
+                { type: 'loginSuccess', payload: string } |
+                { type: 'loginFailed', payload: string } |
+                { type: 'setIsError', payload: boolean };
   
 
   return (
     <section className="signup__form__container">
       <div className="form__container">
-        <form className="form">
+        <div className="text__container">
+          <h1>Learn to code by watching others</h1>
+          <p>See how experienced developers solve problems in real-time. <br />
+            Watching scripted tutorials is great, but understanding how developers think is invaluable.
+          </p>
+        </div>
+
+        <div className="inputs__container">
+          <div className="ad__element">
+            <p>Try it free 7 days then $20/mo. thereafter</p>
+          </div>
+          <form className="form">
           <input
             type="text"
             name="username"
@@ -52,6 +73,7 @@ export default function Form() {
             Sign-up
           </button>
         </form>
+        </div>
       </div>
     </section>
   );
