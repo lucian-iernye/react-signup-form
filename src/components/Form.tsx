@@ -1,28 +1,24 @@
 import React, { useState } from "react";
 import "../index.css";
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
 export default function Form() {
-  interface signUpForm {
-    username: string;
-    email: string;
-    password: string;
+
+  type State = {
+    username: string
+    email: string
+    password: string
+    isButtonDisabled: boolean
+    isError: boolean
   }
 
-  const [username, setUsername] = useState(null);
-  const [email, setEmail] = useState(null);
-  const [password, setPassword] = useState(null);
+  const initialState: State = {
+    username: '',
+    email: '',
+    password: '',
+    isButtonDisabled: true,
+    isError: false,
+  }
   
-
-  const signUp = () => {
-    const data = {
-      username: username,
-      email: email,
-      password: password,
-    };
-
-    console.log(data);
-  };
 
   return (
     <section className="signup__form__container">
@@ -52,7 +48,7 @@ export default function Form() {
             placeholder="Password"
           />
 
-          <button type="submit" onClick={signUp}>
+          <button type="submit">
             Sign-up
           </button>
         </form>
