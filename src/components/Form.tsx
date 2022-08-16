@@ -31,11 +31,10 @@ export default function Form() {
   console.log(errors);
 
   const validationStyle = {
-    transition: `ease-in-out .2s`,
     borderWidth: "2px",
     borderColor: "hsl(0, 100%, 74%)",
     backgroundImage: `url(${errorSvg})`,
-    backgroundPosition: "right",
+    backgroundPosition: "right 20px bottom 20px",
     backgroundRepeat: "no-repeat",
   };
 
