@@ -122,7 +122,7 @@ export default function Form() {
                   message: "Email cannot be empty",
                 },
                 pattern: {
-                  value: new RegExp("^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$"),
+                  value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
                   message: "Looks like this is not an email",
                 },
               })}
