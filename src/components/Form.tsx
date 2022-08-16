@@ -35,7 +35,7 @@ export default function Form() {
     borderWidth: "2px",
     borderColor: "hsl(0, 100%, 74%)",
     backgroundImage: `url(${errorSvg})`,
-    backgroundPosition: "250px",
+    backgroundPosition: "right",
     backgroundRepeat: "no-repeat",
   };
 
@@ -46,11 +46,11 @@ export default function Form() {
   };
 
   return (
-    <section className="signup__form__container w-screen h-screen flex justify-center items-center">
+    <section className="signup__form__container">
       <div className="form__container">
-        <div className="text__container text-white w-1/2 flex flex-col justify-center items-center mr-4">
-          <h1 className="mb-6">Learn to code by watching others</h1>
-          <h2 className="mb-16">
+        <div className="text__container text-white">
+          <h1 className="mb-2">Learn to code by watching others</h1>
+          <h2 className="mb-2">
             See how experienced developers solve problems in real-time. Watching
             scripted tutorials is great, but understanding how developers think
             is invaluable.
@@ -60,7 +60,7 @@ export default function Form() {
         <div className="inputs__container">
           <div className="ad__element w-full rounded-md shadow-lg shadow-gray-700">
             <p className="py-4 text-white text-center">
-              <span className="font-bold">Try it free 7 days </span>then
+              <span className="font-bold">Try it free 7 days </span>then{" "}
               <span className="ad__new__line"> $20/mo. thereafter</span>
             </p>
           </div>
@@ -157,9 +157,9 @@ export default function Form() {
             </button>
             <h3 className="footer__text">
               By clicking the button, you are agreeing to{" "}
-              <p className="footer__text__new__line">
+              <h4 className="footer__text__new__line">
                 our <span className="terms">Terms and Services</span>
-              </p>
+              </h4>
             </h3>
           </form>
         </div>
