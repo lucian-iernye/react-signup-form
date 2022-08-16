@@ -1,74 +1,169 @@
 import React from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
 import "../index.css";
+import errorSvg from "../assets/icon-error.svg";
+
+type FormData = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+};
 
 export default function Form() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormData>({
+    mode: "onSubmit",
+    reValidateMode: "onChange",
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+    },
+  });
 
-  type State = {
-    firstName: string
-    lastName: string
-    email: string
-    password: string
-    isButtonDisabled: boolean
-    isError: boolean
-  }
-  
+  const onSubmit: SubmitHandler<FormData> = (data) => console.log(data);
+
+  console.log(errors);
+
+  const validationStyle = {
+    transition: `ease-in-out .2s`,
+    borderWidth: "2px",
+    borderColor: "hsl(0, 100%, 74%)",
+    backgroundImage: `url(${errorSvg})`,
+    backgroundPosition: "250px",
+    backgroundRepeat: "no-repeat",
+  };
+
+  const renderErrors = (error: any) => {
+    if (error && error.message) {
+      return error.message;
+    }
+  };
 
   return (
-    <section className="signup__form__container px-32 py-32 w-screen h-screen">
-      <div className="form__container w-full h-full flex justify-center items-center">
+    <section className="signup__form__container w-screen h-screen flex justify-center items-center">
+      <div className="form__container">
         <div className="text__container text-white w-1/2 flex flex-col justify-center items-center mr-4">
-          <h1 className="text-7xl font-medium mb-6">Learn to code by watching others</h1>
-          <h2 className="font-normal text-2xl">See how experienced developers solve problems in real-time. <br />
-            Watching scripted tutorials is great, but understanding how developers think is invaluable.
+          <h1 className="mb-6">Learn to code by watching others</h1>
+          <h2 className="mb-16">
+            See how experienced developers solve problems in real-time. Watching
+            scripted tutorials is great, but understanding how developers think
+            is invaluable.
           </h2>
         </div>
 
-        <div className="inputs__container flex flex-col justify-center items-end w-1/2 ml-4">
-          <div className="ad__element w-full bg-blue-800 rounded-md shadow-lg shadow-gray-700">
-            <p className="py-4 text-white text-center"><span className="font-bold">Try it free 7 days</span> then $20/mo. thereafter</p>
+        <div className="inputs__container">
+          <div className="ad__element w-full rounded-md shadow-lg shadow-gray-700">
+            <p className="py-4 text-white text-center">
+              <span className="font-bold">Try it free 7 days </span>then
+              <span className="ad__new__line"> $20/mo. thereafter</span>
+            </p>
           </div>
-          <form className="form w-full h-full flex flex-col items-center justify-center mt-5 p-9 shadow-lg shadow-gray-700 bg-white rounded-md">
-          <input
-            type="text"
-            name="firstName"
-            required
-            autoComplete="off"
-            placeholder="First name"
-          />
+          <form
+            className="form w-full h-full p-6 shadow-lg shadow-gray-700 bg-white rounded-md"
+            onSubmit={handleSubmit(onSubmit)}
+          >
+            <input
+              type="text"
+              style={errors.firstName && validationStyle}
+              autoComplete="off"
+              placeholder={errors.firstName ? "" : "First Name"}
+              {...register("firstName", {
+                required: {
+                  value: true,
+                  message: "First Name cannot be empty",
+                },
+                minLength: {
+                  value: 2,
+                  message: "First Name needs to be longer",
+                },
+                maxLength: {
+                  value: 16,
+                  message: "First Name cannot be more than 16 characters",
+                },
+              })}
+            />
+            <p className="text-right h-10">{renderErrors(errors.firstName)}</p>
 
             <input
-            type="text"
-            name="lastName"
-            required
-            autoComplete="off"
-            placeholder="Last name"
-          />
+              type="text"
+              style={errors.lastName && validationStyle}
+              autoComplete="off"
+              placeholder={errors.lastName ? "" : "Last Name"}
+              {...register("lastName", {
+                required: {
+                  value: true,
+                  message: "Last Name cannot be empty",
+                },
+                minLength: {
+                  value: 2,
+                  message: "Last Name needs to be longer",
+                },
+                maxLength: {
+                  value: 16,
+                  message: "Last Name cannot be more than 16 characters",
+                },
+              })}
+            />
+            <p className="text-right h-10">{renderErrors(errors.lastName)}</p>
 
-          <input
-            type="email"
-            name="email"
-            required
-            autoComplete="off"
-            placeholder="Email"
-          />
+            <input
+              type="text"
+              style={errors.email && validationStyle}
+              autoComplete="off"
+              placeholder={errors.email ? "" : "Email Address"}
+              {...register("email", {
+                required: {
+                  value: true,
+                  message: "Email cannot be empty",
+                },
+                pattern: {
+                  value: new RegExp("^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$"),
+                  message: "Looks like this is not an email",
+                },
+              })}
+            />
+            <p className="text-right h-10">{renderErrors(errors.email)}</p>
 
-          <input
-            type="password"
-            name="password"
-            required
-            autoComplete="off"
-            placeholder="Password"
-          />
+            <input
+              type="password"
+              style={errors.password && validationStyle}
+              autoComplete="off"
+              placeholder={errors.password ? "" : "Password"}
+              {...register("password", {
+                required: {
+                  value: true,
+                  message: "Password cannot be empty",
+                },
+                minLength: {
+                  value: 3,
+                  message: "The password needs to be longer",
+                },
+                maxLength: {
+                  value: 16,
+                  message: "The password cannot be more than 16 characters",
+                },
+              })}
+            />
+            <p className="text-right h-10">{renderErrors(errors.password)}</p>
 
-          <button className="w-full py-4 bg-green-500 rounded-md mb-4 text-white">CLAIM YOUR FREE TRIAL</button>
-            <p className="text-xs">By clicking the button, you are agreeing to our Terms and Services</p>
-        </form>
+            <button className="submit-btn w-full py-4 rounded-md mb-4 text-white">
+              CLAIM YOUR FREE TRIAL
+            </button>
+            <h3 className="footer__text">
+              By clicking the button, you are agreeing to{" "}
+              <p className="footer__text__new__line">
+                our <span className="terms">Terms and Services</span>
+              </p>
+            </h3>
+          </form>
         </div>
       </div>
     </section>
   );
 }
-function useForm(arg0: string): { register: any; handleSubmit: any; } {
-  throw new Error("Function not implemented.");
-}
-
