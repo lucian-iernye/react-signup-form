@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/react-signup-form/static/css/main.fa5d796b.css",
+    "main.css": "/react-signup-form/static/css/main.a63059f8.css",
     "main.js": "/react-signup-form/static/js/main.82b1cd00.js",
     "static/js/787.28cb0dcd.chunk.js": "/react-signup-form/static/js/787.28cb0dcd.chunk.js",
     "static/media/bg-intro-desktop.png": "/react-signup-form/static/media/bg-intro-desktop.059183eea52640c5068d.png",
     "index.html": "/react-signup-form/index.html",
     "static/media/icon-error.svg": "/react-signup-form/static/media/icon-error.b72f792e9c900128f5c88f10a0d8d4b7.svg",
-    "main.fa5d796b.css.map": "/react-signup-form/static/css/main.fa5d796b.css.map",
+    "main.a63059f8.css.map": "/react-signup-form/static/css/main.a63059f8.css.map",
     "main.82b1cd00.js.map": "/react-signup-form/static/js/main.82b1cd00.js.map",
     "787.28cb0dcd.chunk.js.map": "/react-signup-form/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fa5d796b.css",
+    "static/css/main.a63059f8.css",
     "static/js/main.82b1cd00.js"
   ]
 }
