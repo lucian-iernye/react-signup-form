@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/lucian-iernye/react-signup-form/static/css/main.426438fa.css",
+    "main.js": "/lucian-iernye/react-signup-form/static/js/main.df1f6df1.js",
+    "static/js/787.28cb0dcd.chunk.js": "/lucian-iernye/react-signup-form/static/js/787.28cb0dcd.chunk.js",
+    "static/media/bg-intro-desktop.png": "/lucian-iernye/react-signup-form/static/media/bg-intro-desktop.059183eea52640c5068d.png",
+    "index.html": "/lucian-iernye/react-signup-form/index.html",
+    "static/media/icon-error.svg": "/lucian-iernye/react-signup-form/static/media/icon-error.b72f792e9c900128f5c88f10a0d8d4b7.svg",
+    "main.426438fa.css.map": "/lucian-iernye/react-signup-form/static/css/main.426438fa.css.map",
+    "main.df1f6df1.js.map": "/lucian-iernye/react-signup-form/static/js/main.df1f6df1.js.map",
+    "787.28cb0dcd.chunk.js.map": "/lucian-iernye/react-signup-form/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.426438fa.css",
+    "static/js/main.df1f6df1.js"
+  ]
+}
